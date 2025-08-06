@@ -48,3 +48,18 @@ Optional human evaluation may assess LLM outputs qualitatively. Alternatively, c
 
 ---
 
+## 🧠 Key Contributions
+
+- An **automated causal experiment loop** that removes the human from design + inference.
+- **Prompt-based modular design** that can be extended to new political topics.
+- Early proof-of-concept for **LLMs as political science researchers**.
+
+---
+## 📚 References
+
+- Yu, L. et al. (2024). *Improving Causal Reasoning in Large Language Models: A Survey*. arXiv:2410.16676v1.
+- Ma, J. (2025). *Causal Inference with Large Language Models: A Survey*.
+- Liu, Y. et al. (2025). *Large Language Models and Causal Inference in Collaboration: A Survey*.
+- Sgouritsa, A. et al. (2024). *Prompting LLMs for Sub-question Guided Causal Discovery*. arXiv:2412.13952.
+- Manning, B. et al. (2024). *Social Science in Silico: Generating and Testing Theories with LLMs*.
+
