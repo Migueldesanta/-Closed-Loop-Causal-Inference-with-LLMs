@@ -1,66 +1,50 @@
-# -Closed-Loop-Causal-Inference-with-LLMs
-This repository supports a research project exploring closed-loop causal inference in political science using large language models (LLMs). The framework tests whether a single LLM—or modular prompt-based system—can autonomously execute three stages of a causal experiment: treatment generation, (optional) response simulation, and causal reasoning, all without human-labeled data.
+# Closed-Loop Causal Inference with LLMs
 
- Framework Overview
-Treatment Generation
-The LLM generates political message variants (e.g. different framings, tones, or ideological slants) on topics like immigration or surveillance.
+This repository supports a research project exploring **closed-loop causal inference** in political science using large language models (LLMs). The goal is to test whether a single LLM—or a modular prompt-based pipeline—can autonomously conduct three key stages of a causal experiment: **treatment generation**, **(optional) response simulation**, and **causal reasoning**, all without human-labeled data.
 
-(Optional) Simulated Response
-The LLM simulates synthetic responses—such as Likert ratings or textual commentary—by different voter types.
+---
 
-Causal Reasoning
-Prompted to evaluate whether treatment variations likely caused observed or simulated response differences, the LLM applies counterfactual and confounder logic to infer causal effects.
+## 🔁 Framework Overview
 
-You may implement the pipeline using a single LLM instance with role-specific prompts, or use separate fine-tuned modules for each stage.
+1. **Treatment Generation**  
+   The LLM generates political stimuli (e.g. framing, tone, or ideological variants).
 
-📚 Related Literature & Projects
-Ma (2025) and Yu et al. (2024) provide theoretical foundations on LLMs’ capacity for causal inference 
-arXiv
-Wikipedia
-+1
-.
+2. **(Optional) Simulated Response**  
+   The LLM simulates responses by virtual subjects with different political traits.
 
-Sgouritsa et al. (2024) propose PC-SubQ, a prompting method guiding LLMs step-by-step through a causal discovery algorithm 
-arXiv
-.
+3. **Causal Reasoning**  
+   The LLM evaluates whether treatment variation likely caused differences in responses, based on principles like counterfactuals and confounding.
 
-ALCM (Khatibi et al., 2024) integrates data-driven causal discovery with LLM-based refinement 
-Benjamin Manning
-+15
-arXiv
-+15
-GitHub
-+15
-.
+4. **Feedback to Treatment Design**  
+   Reasoning outcomes (e.g. “no effect”) can be used to refine the next generation of treatments — closing the loop.
 
-Manning et al. (2024) present a model using structural causal models and LLMs to generate and test social science hypotheses in silico 
-Benjamin Manning
-+2
-NBER
-+2
-.
+---
 
-On GitHub, repositories like py-why/pywhyllm demonstrate integrating LLMs into causal analysis pipelines 
-ACL Anthology
-+15
-GitHub
-+15
-GitHub
-+15
-.
+## 📚 Literature Review
 
-✨ Key Contributions
-End‑to‑End Automated Causal Pipeline: LLM handles design, response simulation (if used), and causal inference in one loop.
+This project is inspired by the following detailed insights:
 
-Prompt‑Based Modularity: Easily adapt treatment‑creation, response, and reasoning prompts to new topics or political contexts.
+- **Yu et al. (2024)** distinguish between LLMs as “reasoning engines” vs. “data tools.” This project tests LLMs as full reasoning agents, conducting causal inference end-to-end.
 
-Streamlined Hypothesis Generation: Enables early‑stage, cost‑efficient causal hypothesis exploration without labeled survey data.
+- **Ma (2025)** highlights that LLMs can simulate social science pipelines if broken into modular stages (design → simulate → infer). Our framework instantiates this pipeline and evaluates it experimentally.
 
-Extension of Causal Evaluation: Moves beyond causal paraphrases to deeper causal logic use in LLM reasoning.
+- **Liu et al. (2025)** argue LLMs are powerful collaborators in causal studies. We push this by removing the human and asking whether LLMs alone can produce usable insights.
 
-🚀 Example Applications
-Evaluating whether security vs. liberty framing increases public support for surveillance laws
+- **Sgouritsa et al. (2024)** show LLMs can be guided through causal structure learning using question decomposition. We borrow this principle for structured reasoning prompts.
 
-Testing causal impact of populist vs. technocratic messaging on voter attitudes
+- **Manning et al. (2024)** use LLMs to generate and test social science hypotheses. Our project complements this by explicitly targeting the causal chain of influence, not just descriptive patterns.
 
-Generating causal explanations or counterfactual chains in political behavior reasoning
+---
+
+## 🧪 Evaluation Strategy
+
+We assess the pipeline across three dimensions:
+
+- **Plausibility**: Are the generated treatments realistic and comparable to human-designed messages?
+- **Sensitivity**: Do different treatments elicit different simulated responses?
+- **Causal Correctness**: Do the reasoning outputs reflect correct counterfactual logic and avoid common fallacies?
+
+Optional human evaluation may assess LLM outputs qualitatively. Alternatively, comparison to pre-labeled toy datasets (e.g. known cause-effect examples) provides structure.
+
+---
+
